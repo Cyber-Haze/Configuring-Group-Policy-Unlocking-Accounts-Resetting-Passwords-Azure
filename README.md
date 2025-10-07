@@ -92,13 +92,18 @@ Here you can set password parameters to match organizational standards
 
 **If you have created a new Group Policy**
 
-Once you have configure the Password Policy, We need to link it to the OU's required or link it to the entire Domain.
+Once you have configure the Password Policy, We need to link it to the OU's required. preferably link it to the entire Domain.
 
 We do this to ensure the policy settings take effect because the Default Domain Policy Configuration will override the newly created Policy.
 
 Ensure to Enforce the Policy
 
-<img width="1088" height="779" alt="image" src="https://github.com/user-attachments/assets/2796290d-0f8f-4b03-9b8d-1d2a84cfd6fe" />
+  - Right Click "mydomain.com" > Link an Existing GPO
+  - Select "Password Policy" GPO Created
+  - Update Enforce Rule to 'yes'
+
+<img width="801" height="416" alt="image" src="https://github.com/user-attachments/assets/a9da0be3-87fa-4494-a8c6-d223ab61d933" />
+
 </p>
 
 <p>
@@ -146,140 +151,74 @@ Ensure to Enforce the Policy
 
 </p>
 
--Now Attempt to Login with Correct Credentials
 - This error message appears:
 
 <p> 
-<img width="424" height="337" alt="image" src="https://github.com/user-attachments/assets/6882a75d-6571-40ce-aabb-1de3e12f8830" />
+<img width="557" height="149" alt="image" src="https://github.com/user-attachments/assets/4a3bd7a4-eb4a-45e8-a297-03996231b7a5" />
+
+</p>
+
+<h2></h2>
+
+<p> 
+
+**Here we can simulate that the employee created a helpdesk ticket requesting a password reset as they have been locked out of their account.**
+
+To action this ticket request we use Active Directory User Management
+  - Go to _EMPLOYEES OU
+  - Search employee name
+  - Right click on name > Select "Reset Password"
+  - Create a new generic password
+  - Select: User must change password at next login
+  - select: Unlock the user's account > ok
+
+<img width="879" height="667" alt="image" src="https://github.com/user-attachments/assets/8781e683-1d15-4f34-b827-c5072e9a0781" />
+<img width="377" height="257" alt="image" src="https://github.com/user-attachments/assets/48516281-7b33-42ef-9073-b8f15e8fe6f4" /><img width="353" height="148" alt="Screenshot 2025-10-07 153713" src="https://github.com/user-attachments/assets/5e3cb89f-66f6-4db7-ad17-b4cbed084134" />
+
+
+**Inform the end user that their account has been unlocked, provide the new generic password and resolve the ticket.**
+
+Once unlocked you should now have access to the account
+
+<img width="452" height="140" alt="image" src="https://github.com/user-attachments/assets/718b62dd-18a6-4491-839f-d9bc4c73edc5" />
+
+</p>
+
+<H2> Diabling/ Emabling an Account</H2>
+
+<p> 
+
+**In the event someone from the company has quit, been fired or is on vacation, The most common security measure taken is to diable that account**
+
+  - Search employee name
+  - Right click on name > Select Disable Account
+
+<img width="562" height="214" alt="image" src="https://github.com/user-attachments/assets/478f3978-884c-41b6-8699-9c51aa59c2b2" />
+<img width="295" height="149" alt="image" src="https://github.com/user-attachments/assets/a4bf332f-4ffe-47ad-89d3-42e1ff9122d8" />
+
+Notice a down arrow on the user account once it has been diable.
+
+<img width="423" height="111" alt="image" src="https://github.com/user-attachments/assets/72dca25e-b5d4-4e44-9862-3e5ee2003e8e" />
+
+
+**For the purpose of a vacation, once the person has returned you take the same steps and re-enable the account**
+
+<img width="529" height="121" alt="image" src="https://github.com/user-attachments/assets/bcb293d7-b790-4ce4-b45a-596920baeb41" />
+<img width="288" height="143" alt="image" src="https://github.com/user-attachments/assets/7df316e2-d9f0-4a4d-a26c-3de01785eaf4" />
+
+
+</p>
+
+<h2> User Account Logs</h2>
+
+<p> 
+
+
 
 </p>
 
 
 
-
-
-
-
-<p>
-
-
-
-## Step 6: Login to your osTicket virtual machine
-
-**We're going to simulate the user submitting the ticket to the helpdesk to get their account unlocked.**
-
-- Login to your osTicket VM with your credentials
-
-<img width="993" height="506" alt="image" src="https://github.com/user-attachments/assets/d94bd80c-d3c7-43e1-83e9-0ef20ad96ae5" />
-
-
-
-- Submit this ticket as the end user.
-- We will go in as an agent to assign to ourselves and resolve this ticket.
-
-
-<img width="842" height="988" alt="image" src="https://github.com/user-attachments/assets/0d486deb-35cc-45cc-a750-c2be7ed93f30" />
-
-- Our helpdesk technician, John Doe, will login and overview the ticket.
-
-<img width="466" height="598" alt="image" src="https://github.com/user-attachments/assets/5c2554e6-7b3a-460c-9606-7c70af1b6720" />
-
-- John Doe will then send a reply to the user to let them know we're going to take care of them.
-
-
-<img width="947" height="878" alt="Screenshot 2025-09-12 135530" src="https://github.com/user-attachments/assets/c69e0eea-3127-44f7-b2bd-5d32a4607f2c" />
-
-
-
-
-
-
-
-<p>
-
-
-## Step 7: Find the account in our Active Directory
-
-**We're going back to our Domain Controller to find the end user's account in our Active Directory.**
-
-- Go to Active Directory Users and Computers on the domain controller.
-- Right click mydomain.com > find.
-- Type in the end user's name
-
-<img width="479" height="398" alt="Screenshot 2025-09-12 140006" src="https://github.com/user-attachments/assets/936472ce-8071-4a46-8db8-7530df106d47" />
-
-
-
-<img width="513" height="510" alt="Screenshot 2025-09-12 140034" src="https://github.com/user-attachments/assets/a4caa2ac-5e55-4447-b0eb-4b1da9bb4eee" />
-
-- Double click their name that's at the bottom.
-- Go to the account tab.
-- Hit the unlock account checkbox.
-- Click Apply > OK
-
-
-<img width="408" height="534" alt="Screenshot 2025-09-12 140110" src="https://github.com/user-attachments/assets/0e562cf9-7c8f-46d1-be45-ab6b062c81dd" />
-
-- Go back to their name and right click > reset password.
-- Type in their new temporary password.
-
-<img width="376" height="253" alt="Screenshot 2025-09-12 140206" src="https://github.com/user-attachments/assets/416428ac-b6bd-46f2-b997-70d9d12d3cf1" />
-
-
-<img width="325" height="146" alt="Screenshot 2025-09-12 140219" src="https://github.com/user-attachments/assets/b33fab52-4cd4-4d97-95c6-80a59a68e721" />
-
-
-
-
-
-
-
-<p>
-
-
-
-
-
-## Step 8: Resolve the Ticket
-
-**We're going to reply to the end user that their account has been fixed and resolve the ticket.**
-
-- Go back and reply to the end user that you have unlock their account and resetted their password.
-- Press the "resolved" in the dropdown of Ticket status:
-- Hit Post reply
-
-<img width="950" height="999" alt="Screenshot 2025-09-12 141537" src="https://github.com/user-attachments/assets/608d9067-95a9-47b1-8986-c46c0cab8163" />
-
-
-
-
-
-
-<p>
-
-## Step 9: Attempt to login to Client-1 as the end user with the right password
-
-**We're going to login to Client-1 as the end user with the right password this time.**
-
-- Login to Client-1 as the end user
-- They should now be able to login to their machine
-
-  
-<img width="973" height="574" alt="Screenshot 2025-09-12 142126" src="https://github.com/user-attachments/assets/1550a5af-66de-4720-b688-ee20c22ff849" />
-
-- If you access Powershell, you can see that, we're logged into our Client-1 machine as beb.vov!
-
-<img width="935" height="541" alt="image" src="https://github.com/user-attachments/assets/24237459-0921-4aec-b3bf-3f05ad15ec8d" />
-
-
-
-## I hope this tutorial could represent Helpdesk flows and my experience with working with different tools used as a helpdesk professional!
-
-<p>
-
-
-
-
-
+<H2> Conclusion </H2>
 
 
