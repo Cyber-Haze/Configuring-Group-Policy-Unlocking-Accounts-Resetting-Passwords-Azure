@@ -18,10 +18,14 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Windows Server 2022
 - Windows 10 (21H2)
 
-<h2> Steps </h2>
+<h2> Steps Taken</h2>
 
 - Configuring the Account Lockout & Passowrd Policy
-- 
+  - Create/ Edit a Password policy
+  - Force Group Policy Update
+  - Test Group Policy is Active
+- Diabling/ Enabling an Account
+- User Account Logs
 
 <h2></h2>
 
@@ -134,7 +138,7 @@ Ensure to Enforce the Policy
 
 <h2></h2>
 
-<h3> Test Group Policy is Active </h3>
+<h2> Test Group Policy is Active </h2>
 
 </p>
 
@@ -184,7 +188,7 @@ Once unlocked you should now have access to the account
 
 </p>
 
-<H2> Diabling/ Emabling an Account</H2>
+<H2> Diabling/ Enabling an Account</H2>
 
 <p> 
 
