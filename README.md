@@ -213,6 +213,21 @@ Notice a down arrow on the user account once it has been diable.
 
 <p> 
 
+**In the event of any suspicious log in activities, one can view them via "Event Viewer"
+
+  - Within DC-1, search from windows menu: Event Viewer
+  - OR
+  - Within Clint-1, search from windows menu: Event Viewer and run as Admin (for a more refined search) > log in as admin
+  - Select: Windows logs > Security
+
+
+<img width="433" height="457" alt="image" src="https://github.com/user-attachments/assets/831074e9-bc31-422d-b191-dc5043fb74b8" />
+
+From here you will be able to search the log for any events
+
+For example: highligting the failed log in attempts that prompted a password reset and account unlock. This can also be quickly identified by the event ID 4625
+
+<img width="1564" height="985" alt="image" src="https://github.com/user-attachments/assets/882c3ad6-9688-46e8-b277-29c3b3ba52ec" />
 
 
 </p>
